@@ -52,9 +52,10 @@ El dataset Iris contiene 3 clases de 50 instancias cada una, donde cada clase se
 | Modelo | Precisión Media | Desviación Estándar |
 |--------|-----------------|---------------------|
 | LDA | 98.00% | ±1.63% |
-| QDA | Por evaluar | - |
-| SVM (RBF) | Por evaluar | - |
-| Decision Tree | 95.56% | - |
+| QDA | 97.33% | ±1.33% |
+| SVM (RBF) | 96.67% | ±2.98% |
+| Decision Tree | 95.56% | ±2.98% |
+| Perceptron | 72.76% | ±17.31% |
 
 **Mejor modelo:** LDA con 98% de precisión
 
@@ -87,13 +88,14 @@ iris-classification/
 git clone https://github.com/jmalfaro2019/iris-classification.git
 cd iris-classification
 ```
+
 # Instalar dependencias
 ```
-pip install -r requirements.txt
+pip install -r code/requirements.txt
 ```
-# Ejecutar análisis completo
+# Ejecutar el notebook
 ```
-python code/iris_analysis.py
+jupyter notebook notebooks/iris_analysis.ipynb
 ```
 
 ## 📈 Visualizaciones
@@ -114,7 +116,7 @@ python code/iris_analysis.py
 ---
 
 ## 🌐 Demo en Vivo
-🔗 Ver Proyecto en **GitHub Pages**
+🔗 Ver Proyecto en [**GitHub Pages**](https://jmalfaro2019.github.io/Iris-classification/)
 
 ---
 
