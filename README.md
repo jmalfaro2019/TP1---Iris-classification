@@ -116,7 +116,7 @@ jupyter notebook notebooks/iris_analysis.ipynb
 ---
 
 ## 🌐 Demo en Vivo
-🔗 Ver Proyecto en **GitHub Pages**
+🔗 Ver Proyecto en [**GitHub Pages**](https://jmalfaro2019.github.io/Iris-classification/)
 
 ---
 
