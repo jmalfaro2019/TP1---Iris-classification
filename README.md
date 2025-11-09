@@ -52,9 +52,10 @@ El dataset Iris contiene 3 clases de 50 instancias cada una, donde cada clase se
 | Modelo | Precisión Media | Desviación Estándar |
 |--------|-----------------|---------------------|
 | LDA | 98.00% | ±1.63% |
-| QDA | Por evaluar | - |
-| SVM (RBF) | Por evaluar | - |
-| Decision Tree | 95.56% | - |
+| QDA | 97.33% | ±1.33% |
+| SVM (RBF) | 96.67% | ±2.98% |
+| Decision Tree | 95.56% | ±2.98% |
+| Perceptron | 72.76% | ±17.31% |
 
 **Mejor modelo:** LDA con 98% de precisión
 
