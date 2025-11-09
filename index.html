@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Classification Project | Jose Miguel Alfaro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #27ae60;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --warning: #e74c3c;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            background: #2980b9;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+        
+        .section-light {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+        
+        .skill-category li i {
+            color: var(--secondary);
+        }
+        
+        /* Project Parts */
+        .project-part {
+            margin-bottom: 4rem;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .part-header {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem 2rem;
+        }
+        
+        .part-content {
+            padding: 2rem;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .result-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .result-card h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .high-accuracy { background-color: rgba(39, 174, 96, 0.1); }
+        .medium-accuracy { background-color: rgba(241, 196, 15, 0.1); }
+        .low-accuracy { background-color: rgba(231, 76, 60, 0.1); }
+        
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 0.5rem 0;
+        }
+        
+        .metric-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Iris Classification Project</h1>
+                <p class="subtitle">Análisis de clasificación multi-clase con múltiples algoritmos de Machine Learning</p>
+                <div class="btn-group">
+                    <a href="https://github.com/jmalfaro2019/iris-classification" class="btn" target="_blank">
+                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    </a>
+                    <a href="docs/TP1_pdf.pdf" class="btn btn-outline" target="_blank">
+                        <i class="fas fa-file-pdf"></i> Descargar Reporte PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Resumen -->
+    <section class="section-light">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Resumen del Proyecto</h2>
+            </div>
+            <div class="fade-in delay-1">
+                <p>Este proyecto implementa un análisis completo del dataset Iris, un benchmark clásico en Machine Learning. Se compararon múltiples algoritmos de clasificación supervisada para predecir especies de iris basándose en medidas morfológicas de sépalos y pétalos. El proyecto incluye análisis exploratorio, visualizaciones avanzadas y evaluación rigurosa de modelos.</p>
+            </div>
+            
+            <div class="metrics-grid fade-in delay-2">
+                <div class="metric-card">
+                    <i class="fas fa-seedling fa-2x"></i>
+                    <div class="metric-value">3 Clases</div>
+                    <div class="metric-label">Especies de Iris</div>
+                </div>
+                <div class="metric-card">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                    <div class="metric-value">98.00%</div>
+                    <div class="metric-label">Mejor precisión (LDA)</div>
+                </div>
+                <div class="metric-card">
+                    <i class="fas fa-brain fa-2x"></i>
+                    <div class="metric-value">5 Modelos</div>
+                    <div class="metric-label">Algoritmos comparados</div>
+                </div>
+                <div class="metric-card">
+                    <i class="fas fa-ruler fa-2x"></i>
+                    <div class="metric-value">4 Features</div>
+                    <div class="metric-label">Características morfológicas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dataset -->
+    <section>
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Dataset Iris</h2>
+            </div>
+            <div class="project-part fade-in">
+                <div class="part-header">
+                    <h3><i class="fas fa-database"></i> Características del Dataset</h3>
+                </div>
+                <div class="part-content">
+                    <p>El dataset Iris es posiblemente la base de datos más conocida en la literatura de reconocimiento de patrones. Contiene 3 clases de 50 instancias cada una, donde cada clase se refiere a un tipo de planta iris.</p>
+                    
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <h4>Características (Features)</h4>
+                            <ul>
+                                <li><strong>Sepal Length:</strong> Longitud del sépalo (cm)</li>
+                                <li><strong>Sepal Width:</strong> Ancho del sépalo (cm)</li>
+                                <li><strong>Petal Length:</strong> Longitud del pétalo (cm)</li>
+                                <li><strong>Petal Width:</strong> Ancho del pétalo (cm)</li>
+                            </ul>
+                        </div>
+                        <div class="result-card">
+                            <h4>Clases (Target)</h4>
+                            <ul>
+                                <li><strong>Iris Setosa:</strong> 50 muestras</li>
+                                <li><strong>Iris Versicolour:</strong> 50 muestras</li>
+                                <li><strong>Iris Virginica:</strong> 50 muestras</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Propiedad importante:</strong> La clase Iris Setosa es linealmente separable de las otras dos, mientras que Iris Versicolour e Iris Virginica no son linealmente separables entre sí.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodología -->
+    <section class="section-light">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Metodología y Algoritmos</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-search"></i> Análisis Exploratorio</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Pairplots con Seaborn</li>
+                        <li><i class="fas fa-check"></i> Reducción dimensional (t-SNE)</li>
+                        <li><i class="fas fa-check"></i> Análisis de correlaciones</li>
+                        <li><i class="fas fa-check"></i> Visualización de distribuciones</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in delay-1">
+                    <h3><i class="fas fa-brain"></i> Modelos Implementados</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Linear Discriminant Analysis (LDA)</li>
+                        <li><i class="fas fa-check"></i> Quadratic Discriminant Analysis (QDA)</li>
+                        <li><i class="fas fa-check"></i> SVM con kernel RBF</li>
+                        <li><i class="fas fa-check"></i> Perceptron</li>
+                        <li><i class="fas fa-check"></i> Decision Tree Classifier</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in delay-2">
+                    <h3><i class="fas fa-chart-bar"></i> Evaluación</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Validación cruzada (5-fold)</li>
+                        <li><i class="fas fa-check"></i> Matrices de confusión</li>
+                        <li><i class="fas fa-check"></i> Importancia de características</li>
+                        <li><i class="fas fa-check"></i> Visualización de árboles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados -->
+    <section>
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Resultados y Comparación</h2>
+            </div>
+            <div class="project-part fade-in">
+                <div class="part-header">
+                    <h3><i class="fas fa-trophy"></i> Rendimiento de Modelos</h3>
+                </div>
+                <div class="part-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Modelo</th>
+                                <th>Precisión Media</th>
+                                <th>Desviación Estándar</th>
+                                <th>Observaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="high-accuracy">
+                                <td><strong>LDA</strong></td>
+                                <td>98.00%</td>
+                                <td>±1.63%</td>
+                                <td>Mejor rendimiento general</td>
+                            </tr>
+                            <tr class="high-accuracy">
+                                <td><strong>QDA</strong></td>
+                                <td>97.33%</td>
+                                <td>±1.33%</td>
+                                <td>Excelente rendimiento</td>
+                            </tr>
+                            <tr class="medium-accuracy">
+                                <td><strong>SVM (RBF)</strong></td>
+                                <td>96.67%</td>
+                                <td>±2.98%</td>
+                                <td>Buen rendimiento, mayor variabilidad</td>
+                            </tr>
+                            <tr class="medium-accuracy">
+                                <td><strong>Decision Tree</strong></td>
+                                <td>95.56%</td>
+                                <td>±2.98%</td>
+                                <td>Buen rendimiento, fácil interpretación</td>
+                            </tr>
+                            <tr class="low-accuracy">
+                                <td><strong>Perceptron</strong></td>
+                                <td>72.76%</td>
+                                <td>±17.31%</td>
+                                <td>Rendimiento inconsistente</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="results-grid" style="margin-top: 2rem;">
+                        <div class="result-card">
+                            <h4>Análisis de Resultados</h4>
+                            <p>El <strong>LDA</strong> demostró ser el modelo más efectivo con una precisión del 98% y baja variabilidad. Los modelos lineales (LDA, QDA) superaron a los no lineales en este dataset específico.</p>
+                            <p>El <strong>Perceptron</strong> mostró un rendimiento inconsistente debido a la no separabilidad lineal completa del dataset.</p>
+                        </div>
+                        <div class="result-card">
+                            <h4>Importancia de Características</h4>
+                            <p>El análisis del árbol de decisión reveló que <strong>petal length</strong> es la característica más importante (89.3%), seguida de <strong>petal width</strong> (8.8%).</p>
+                            <p>Las características del sépalo mostraron menor poder discriminatorio para este problema de clasificación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hallazgos -->
+    <section class="section-light">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Hallazgos Clave</h2>
+            </div>
+            <div class="results-grid fade-in">
+                <div class="result-card">
+                    <h4><i class="fas fa-project-diagram"></i> Separabilidad de Clases</h4>
+                    <p>La visualización con t-SNE y pairplots confirmó que Iris Setosa es claramente separable, mientras que Iris Versicolour e Iris Virginica presentan cierto solapamiento en el espacio de características.</p>
+                </div>
+                <div class="result-card">
+                    <h4><i class="fas fa-ruler-combined"></i> Características Discriminatorias</h4>
+                    <p>Las medidas del pétalo (length y width) son significativamente más informativas que las del sépalo para distinguir entre especies, con petal length siendo la característica más importante.</p>
+                </div>
+                <div class="result-card">
+                    <h4><i class="fas fa-chart-line"></i> Rendimiento de Modelos</h4>
+                    <p>Los modelos lineales (LDA, QDA) superaron a enfoques más complejos, sugiriendo que las relaciones lineales capturan adecuadamente la estructura subyacente del dataset Iris.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section>
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Tecnologías Utilizadas</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-code"></i> Lenguajes & Librerías</h3>
+                    <ul>
+                        <li><i class="fab fa-python"></i> Python 3.8+</li>
+                        <li><i class="fas fa-cube"></i> scikit-learn</li>
+                        <li><i class="fas fa-chart-bar"></i> pandas & numpy</li>
+                        <li><i class="fas fa-paint-brush"></i> matplotlib & seaborn</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in delay-1">
+                    <h3><i class="fas fa-cogs"></i> Algoritmos</h3>
+                    <ul>
+                        <li><i class="fas fa-project-diagram"></i> LDA & QDA</li>
+                        <li><i class="fas fa-shapes"></i> SVM con kernel RBF</li>
+                        <li><i class="fas fa-network-wired"></i> Perceptron</li>
+                        <li><i class="fas fa-sitemap"></i> Decision Trees</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in delay-2">
+                    <h3><i class="fas fa-tasks"></i> Técnicas</h3>
+                    <ul>
+                        <li><i class="fas fa-crosshairs"></i> Validación Cruzada</li>
+                        <li><i class="fas fa-compress-arrows-alt"></i> Reducción Dimensional (t-SNE)</li>
+                        <li><i class="fas fa-search"></i> Análisis Exploratorio</li>
+                        <li><i class="fas fa-chart-line"></i> Evaluación de Modelos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusiones -->
+    <section class="section-light">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Conclusiones</h2>
+            </div>
+            <div class="fade-in">
+                <p>Este proyecto demostró la aplicación efectiva de múltiples algoritmos de clasificación en el dataset Iris. Los resultados confirman que para problemas con estructura lineal subyacente, modelos simples como LDA pueden superar a enfoques más complejos.</p>
+                
+                <div class="results-grid" style="margin-top: 2rem;">
+                    <div class="result-card">
+                        <h4>Contribuciones Principales</h4>
+                        <ul>
+                            <li>Implementación comparativa de 5 algoritmos de ML</li>
+                            <li>Análisis exhaustivo de importancia de características</li>
+                            <li>Visualizaciones avanzadas para interpretación de resultados</li>
+                            <li>Evaluación rigurosa con validación cruzada</li>
+                        </ul>
+                    </div>
+                    <div class="result-card">
+                        <h4>Aprendizajes Clave</h4>
+                        <ul>
+                            <li>La simplicidad del modelo no siempre compromete el rendimiento</li>
+                            <li>El análisis exploratorio es crucial para entender los datos</li>
+                            <li>La validación cruzada proporciona estimaciones más robustas</li>
+                            <li>La interpretabilidad del modelo es tan importante como la precisión</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>¿Interesado en colaborar?</h3>
+                <p>No dudes en contactarme para oportunidades profesionales o proyectos de investigación.</p>
+                <div class="social-links">
+                    <a href="https://github.com/jmalfaro2019" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jose-alfaro-334327291" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:tu-email@example.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p>&copy; 2024 Jose Miguel Alfaro Castillo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.style.opacity = "1";
+                        element.style.transform = "translateY(0)";
+                    }
+                });
+            };
+            
+            // Set initial state
+            fadeElements.forEach(element => {
+                element.style.opacity = "0";
+                element.style.transform = "translateY(20px)";
+                element.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+            });
+            
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll(); // Check on load
+        });
+    </script>
+</body>
+</html>
