@@ -115,7 +115,7 @@ jupyter notebook notebooks/iris_analysis.ipynb
 ---
 
 ## 🌐 Web
-🔗 **[View Project on GitHub Pages](https://jmalfaro2019.github.io/iris-classification/)**
+🔗 **[View Project on GitHub Pages](https://jmalfaro2019.github.io/Iris-classification/)**
 
 ---
 
