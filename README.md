@@ -4,52 +4,52 @@
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.2%2B-orange)](https://scikit-learn.org)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-Análisis completo del dataset Iris utilizando múltiples algoritmos de clasificación supervisada, incluyendo LDA, QDA, SVM, Perceptron y Árboles de Decisión.
+Complete analysis of the Iris dataset using multiple supervised classification algorithms, including LDA, QDA, SVM, Perceptron, and Decision Trees.
 
-## 🎯 Objetivos del Proyecto
+## 🎯 Project Objectives
 
-- Implementar y comparar múltiples algoritmos de clasificación
-- Realizar análisis exploratorio de datos (EDA) con visualizaciones avanzadas
-- Aplicar técnicas de reducción de dimensionalidad (t-SNE)
-- Evaluar modelos mediante validación cruzada
-- Interpretar resultados y características importantes
+- Implement and compare multiple classification algorithms
+- Perform exploratory data analysis (EDA) with advanced visualizations
+- Apply dimensionality reduction techniques (t-SNE)
+- Evaluate models using cross-validation
+- Interpret results and important features
 
-## 📊 Dataset Iris
+## 📊 Iris Dataset
 
-El dataset Iris contiene 3 clases de 50 instancias cada una, donde cada clase se refiere a un tipo de planta iris. Es un benchmark clásico en Machine Learning.
+The Iris dataset contains 3 classes of 50 instances each, where each class refers to a type of iris plant. It is a classic benchmark in Machine Learning.
 
-**Características:**
+**Features:**
 - Sepal length (cm)
-- Sepal width (cm) 
+- Sepal width (cm)
 - Petal length (cm)
 - Petal width (cm)
 
-**Clases:** Iris Setosa, Iris Versicolour, Iris Virginica
+**Classes:** Iris Setosa, Iris Versicolour, Iris Virginica
 
-## 🚀 Características Implementadas
+## 🚀 Implemented Features
 
-### 🔍 Análisis Exploratorio
-- Pairplots con Seaborn
-- Reducción dimensional con t-SNE
-- Análisis de correlaciones
+### 🔍 Exploratory Analysis
+- Pairplots with Seaborn
+- Dimensional reduction with t-SNE
+- Correlation analysis
 
-### 🤖 Modelos de ML Implementados
+### 🤖 ML Models Implemented
 - **Linear Discriminant Analysis (LDA)**
 - **Quadratic Discriminant Analysis (QDA)**
-- **Support Vector Machine (SVM)** con kernel RBF
+- **Support Vector Machine (SVM)** with RBF kernel
 - **Perceptron**
 - **Decision Tree Classifier**
 
-### 📈 Evaluación y Métricas
-- Validación cruzada (5-fold)
-- Matriz de confusión
-- Reporte de clasificación
-- Importancia de características
-- Visualización de árboles de decisión
+### 📈 Evaluation and Metrics
+- Cross-validation (5-fold)
+- Confusion matrix
+- Classification report
+- Feature importance
+- Decision tree visualization
 
-## 📊 Resultados Destacados
+## 📊 Notable Results
 
-| Modelo | Precisión Media | Desviación Estándar |
+| Model | Average Accuracy | Standard Deviation |
 |--------|-----------------|---------------------|
 | LDA | 98.00% | ±1.63% |
 | QDA | 97.33% | ±1.33% |
@@ -57,16 +57,16 @@ El dataset Iris contiene 3 clases de 50 instancias cada una, donde cada clase se
 | Decision Tree | 95.56% | ±2.98% |
 | Perceptron | 72.76% | ±17.31% |
 
-**Mejor modelo:** LDA con 98% de precisión
+**Best model:** LDA with 98% accuracy
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
 - **Python 3.8+**
-- **Librerías:** scikit-learn, pandas, numpy, matplotlib, seaborn
-- **Algoritmos:** LDA, QDA, SVM, Perceptron, Decision Trees, t-SNE
-- **Métricas:** Accuracy, Confusion Matrix, Feature Importance
+- **Libraries:** scikit-learn, pandas, numpy, matplotlib, seaborn
+- **Algorithms:** LDA, QDA, SVM, Perceptron, Decision Trees, t-SNE
+- **Metrics:** Accuracy, Confusion Matrix, Feature Importance
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 ```
 iris-classification/
 ├── notebooks/
@@ -74,60 +74,60 @@ iris-classification/
 │ ├── Supervised_classification_TP1_template.ipynb
 │ └── iris.csv
 ├── docs/
-│ └── TP1_pdf.pdf # Reporte original
+│ └── TP1_pdf.pdf # Original report
 ├── requirements.txt
 ├── LICENSE
 └── README.md
 ```
-## ⚡ Instalación y Uso
+## ⚡ Installation and Use
 
 
-# Clonar el repositorio
+# Clone the repository
 ```
 git clone https://github.com/jmalfaro2019/iris-classification.git
 cd iris-classification
 ```
 
-# Instalar dependencias
+# Install dependencies
 ```
 pip install -r code/requirements.txt
 ```
-# Ejecutar el notebook
+# Run the notebook
 ```
 jupyter notebook notebooks/iris_analysis.ipynb
 ```
 
-## 📈 Visualizaciones
-- **Pairplot**: Relaciones entre todas las características  
-- **t-SNE**: Proyección 2D del dataset  
-- **Árbol de Decisión**: Estructura del modelo  
-- **Matriz de Confusión**: Rendimiento por clase  
-- **Regiones de Decisión**: Fronteras de clasificación  
+## 📈 Visualizations
+- **Pairplot**: Relationships between all features  
+- **t-SNE**: 2D projection of the dataset  
+- **Decision Tree**: Model structure  
+- **Confusion Matrix**: Performance by class  
+- **Decision Regions**: Classification boundaries  
 
 ---
 
-## 🔍 Hallazgos Clave
-- **Separabilidad Lineal**: *Setosa* es linealmente separable, *Versicolor* y *Virginica* no  
-- **Característica Más Importante**: *Petal length* (89.3% de importancia)  
-- **Mejor Modelo**: LDA con **98% de precisión**  
-- **t-SNE**: Confirma la separabilidad observada en pairplots  
+## 🔍 Key Findings
+- **Linear Separability**: *Setosa* is linearly separable, *Versicolor* and *Virginica* are not  
+- **Most Important Feature**: Petal length (89.3% importance)  
+- **Best Model**: LDA with **98% accuracy**  
+- **t-SNE**: Confirms the separability observed in pairplots  
 
 ---
 
 ## 🌐 Web
-🔗 **[Ver Proyecto en GitHub Pages](https://jmalfaro2019.github.io/iris-classification/)**
+🔗 **[View Project on GitHub Pages](https://jmalfaro2019.github.io/Iris-classification/)**
 
 ---
 
-## 📄 Reporte Completo
-📋 **[Descargar Reporte PDF](docs/TP1_pdf.pdf)**
+## 📄 Full Report
+📋 **[Download PDF Report](docs/TP1_pdf.pdf)**
 
 ---
 
-## 👨‍💻 Autor
-**Jose Miguel Alfaro Castillo** — [GitHub]((https://github.com/jmalfaro2019) — [LinkedIn](https://www.linkedin.com/in/jose-alfaro-334327291)
+## 👨‍💻 Author
+**Jose Miguel Alfaro Castillo** — [GitHub](https://github.com/jmalfaro2019) — [LinkedIn](https://www.linkedin.com/in/jose-alfaro-334327291)
 
 ---
 
-## 📝 Licencia
-Este proyecto está bajo la **Licencia MIT** — ver el archivo `LICENSE` para más detalles.
+## 📝 License
+This project is licensed under the **MIT License** — see the `LICENSE` file for more details.

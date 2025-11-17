@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -352,54 +352,91 @@
     <link rel="icon" type="image/svg" href="images/Logo.svg">
 </head>
 <body>
+    <!-- Back to Portfolio Button -->
+    <div class="back-to-portfolio">
+        <a href="https://jmalfaro2019.github.io/jmalfaro2019/" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <style>
+    .back-to-portfolio {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+
+    .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1.5rem;
+        background: #2c3e50;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        background: #3498db;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    </style>
+
     <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
                 <h1>Iris Classification Project</h1>
-                <p class="subtitle">Análisis de clasificación multi-clase con múltiples algoritmos de Machine Learning</p>
+                <p class="subtitle">Multi-class classification analysis with multiple Machine Learning algorithms</p>
                 <div class="btn-group">
                     <a href="https://github.com/jmalfaro2019/iris-classification" class="btn" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                        <i class="fab fa-github"></i> View Code on GitHub
                     </a>
                     <a href="docs/TP1_pdf.pdf" class="btn btn-outline" target="_blank">
-                        <i class="fas fa-file-pdf"></i> Descargar Reporte PDF
+                        <i class="fas fa-file-pdf"></i> Download PDF Report
                     </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Resumen -->
+    <!-- Summary -->
     <section class="section-light">
         <div class="container">
             <div class="section-title fade-in">
-                <h2>Resumen del Proyecto</h2>
+                <h2>Project Summary</h2>
             </div>
             <div class="fade-in delay-1">
-                <p>Este proyecto implementa un análisis completo del dataset Iris, un benchmark clásico en Machine Learning. Se compararon múltiples algoritmos de clasificación supervisada para predecir especies de iris basándose en medidas morfológicas de sépalos y pétalos. El proyecto incluye análisis exploratorio, visualizaciones avanzadas y evaluación rigurosa de modelos.</p>
+                <p>This project implements a comprehensive analysis of the Iris dataset, a classic benchmark in Machine Learning. Multiple supervised classification algorithms were compared to predict iris species based on sepal and petal morphological measurements. The project includes exploratory analysis, advanced visualizations, and rigorous model evaluation.</p>
             </div>
             
             <div class="metrics-grid fade-in delay-2">
                 <div class="metric-card">
                     <i class="fas fa-seedling fa-2x"></i>
-                    <div class="metric-value">3 Clases</div>
-                    <div class="metric-label">Especies de Iris</div>
+                    <div class="metric-value">3 Classes</div>
+                    <div class="metric-label">Iris Species</div>
                 </div>
                 <div class="metric-card">
                     <i class="fas fa-chart-line fa-2x"></i>
                     <div class="metric-value">98.00%</div>
-                    <div class="metric-label">Mejor precisión (LDA)</div>
+                    <div class="metric-label">Best Accuracy (LDA)</div>
                 </div>
                 <div class="metric-card">
                     <i class="fas fa-brain fa-2x"></i>
-                    <div class="metric-value">5 Modelos</div>
-                    <div class="metric-label">Algoritmos comparados</div>
+                    <div class="metric-value">5 Models</div>
+                    <div class="metric-label">Algorithms Compared</div>
                 </div>
                 <div class="metric-card">
                     <i class="fas fa-ruler fa-2x"></i>
                     <div class="metric-value">4 Features</div>
-                    <div class="metric-label">Características morfológicas</div>
+                    <div class="metric-label">Morphological Characteristics</div>
                 </div>
             </div>
         </div>
@@ -409,98 +446,98 @@
     <section>
         <div class="container">
             <div class="section-title fade-in">
-                <h2>Dataset Iris</h2>
+                <h2>Iris Dataset</h2>
             </div>
             <div class="project-part fade-in">
                 <div class="part-header">
-                    <h3><i class="fas fa-database"></i> Características del Dataset</h3>
+                    <h3><i class="fas fa-database"></i> Dataset Characteristics</h3>
                 </div>
                 <div class="part-content">
-                    <p>El dataset Iris es posiblemente la base de datos más conocida en la literatura de reconocimiento de patrones. Contiene 3 clases de 50 instancias cada una, donde cada clase se refiere a un tipo de planta iris.</p>
+                    <p>The Iris dataset is possibly the best-known database in pattern recognition literature. It contains 3 classes of 50 instances each, where each class refers to a type of iris plant.</p>
                     
                     <div class="results-grid">
                         <div class="result-card">
-                            <h4>Características (Features)</h4>
+                            <h4>Features</h4>
                             <ul>
-                                <li><strong>Sepal Length:</strong> Longitud del sépalo (cm)</li>
-                                <li><strong>Sepal Width:</strong> Ancho del sépalo (cm)</li>
-                                <li><strong>Petal Length:</strong> Longitud del pétalo (cm)</li>
-                                <li><strong>Petal Width:</strong> Ancho del pétalo (cm)</li>
+                                <li><strong>Sepal Length:</strong> Sepal length (cm)</li>
+                                <li><strong>Sepal Width:</strong> Sepal width (cm)</li>
+                                <li><strong>Petal Length:</strong> Petal length (cm)</li>
+                                <li><strong>Petal Width:</strong> Petal width (cm)</li>
                             </ul>
                         </div>
                         <div class="result-card">
-                            <h4>Clases (Target)</h4>
+                            <h4>Classes (Target)</h4>
                             <ul>
-                                <li><strong>Iris Setosa:</strong> 50 muestras</li>
-                                <li><strong>Iris Versicolour:</strong> 50 muestras</li>
-                                <li><strong>Iris Virginica:</strong> 50 muestras</li>
+                                <li><strong>Iris Setosa:</strong> 50 samples</li>
+                                <li><strong>Iris Versicolour:</strong> 50 samples</li>
+                                <li><strong>Iris Virginica:</strong> 50 samples</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <p><strong>Propiedad importante:</strong> La clase Iris Setosa es linealmente separable de las otras dos, mientras que Iris Versicolour e Iris Virginica no son linealmente separables entre sí.</p>
+                    <p><strong>Important property:</strong> The Iris Setosa class is linearly separable from the other two, while Iris Versicolour and Iris Virginica are not linearly separable from each other.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Metodología -->
+    <!-- Methodology -->
     <section class="section-light">
         <div class="container">
             <div class="section-title fade-in">
-                <h2>Metodología y Algoritmos</h2>
+                <h2>Methodology and Algorithms</h2>
             </div>
             <div class="skills-grid">
                 <div class="skill-category fade-in">
-                    <h3><i class="fas fa-search"></i> Análisis Exploratorio</h3>
+                    <h3><i class="fas fa-search"></i> Exploratory Analysis</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Pairplots con Seaborn</li>
-                        <li><i class="fas fa-check"></i> Reducción dimensional (t-SNE)</li>
-                        <li><i class="fas fa-check"></i> Análisis de correlaciones</li>
-                        <li><i class="fas fa-check"></i> Visualización de distribuciones</li>
+                        <li><i class="fas fa-check"></i> Pairplots with Seaborn</li>
+                        <li><i class="fas fa-check"></i> Dimensionality Reduction (t-SNE)</li>
+                        <li><i class="fas fa-check"></i> Correlation Analysis</li>
+                        <li><i class="fas fa-check"></i> Distribution Visualization</li>
                     </ul>
                 </div>
                 <div class="skill-category fade-in delay-1">
-                    <h3><i class="fas fa-brain"></i> Modelos Implementados</h3>
+                    <h3><i class="fas fa-brain"></i> Implemented Models</h3>
                     <ul>
                         <li><i class="fas fa-check"></i> Linear Discriminant Analysis (LDA)</li>
                         <li><i class="fas fa-check"></i> Quadratic Discriminant Analysis (QDA)</li>
-                        <li><i class="fas fa-check"></i> SVM con kernel RBF</li>
+                        <li><i class="fas fa-check"></i> SVM with RBF Kernel</li>
                         <li><i class="fas fa-check"></i> Perceptron</li>
                         <li><i class="fas fa-check"></i> Decision Tree Classifier</li>
                     </ul>
                 </div>
                 <div class="skill-category fade-in delay-2">
-                    <h3><i class="fas fa-chart-bar"></i> Evaluación</h3>
+                    <h3><i class="fas fa-chart-bar"></i> Evaluation</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Validación cruzada (5-fold)</li>
-                        <li><i class="fas fa-check"></i> Matrices de confusión</li>
-                        <li><i class="fas fa-check"></i> Importancia de características</li>
-                        <li><i class="fas fa-check"></i> Visualización de árboles</li>
+                        <li><i class="fas fa-check"></i> Cross-Validation (5-fold)</li>
+                        <li><i class="fas fa-check"></i> Confusion Matrices</li>
+                        <li><i class="fas fa-check"></i> Feature Importance</li>
+                        <li><i class="fas fa-check"></i> Tree Visualization</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Resultados -->
+    <!-- Results -->
     <section>
         <div class="container">
             <div class="section-title fade-in">
-                <h2>Resultados y Comparación</h2>
+                <h2>Results and Comparison</h2>
             </div>
             <div class="project-part fade-in">
                 <div class="part-header">
-                    <h3><i class="fas fa-trophy"></i> Rendimiento de Modelos</h3>
+                    <h3><i class="fas fa-trophy"></i> Model Performance</h3>
                 </div>
                 <div class="part-content">
                     <table>
                         <thead>
                             <tr>
-                                <th>Modelo</th>
-                                <th>Precisión Media</th>
-                                <th>Desviación Estándar</th>
-                                <th>Observaciones</th>
+                                <th>Model</th>
+                                <th>Mean Accuracy</th>
+                                <th>Standard Deviation</th>
+                                <th>Observations</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -508,45 +545,45 @@
                                 <td><strong>LDA</strong></td>
                                 <td>98.00%</td>
                                 <td>±1.63%</td>
-                                <td>Mejor rendimiento general</td>
+                                <td>Best overall performance</td>
                             </tr>
                             <tr class="high-accuracy">
                                 <td><strong>QDA</strong></td>
                                 <td>97.33%</td>
                                 <td>±1.33%</td>
-                                <td>Excelente rendimiento</td>
+                                <td>Excellent performance</td>
                             </tr>
                             <tr class="medium-accuracy">
                                 <td><strong>SVM (RBF)</strong></td>
                                 <td>96.67%</td>
                                 <td>±2.98%</td>
-                                <td>Buen rendimiento, mayor variabilidad</td>
+                                <td>Good performance, higher variability</td>
                             </tr>
                             <tr class="medium-accuracy">
                                 <td><strong>Decision Tree</strong></td>
                                 <td>95.56%</td>
                                 <td>±2.98%</td>
-                                <td>Buen rendimiento, fácil interpretación</td>
+                                <td>Good performance, easy interpretation</td>
                             </tr>
                             <tr class="low-accuracy">
                                 <td><strong>Perceptron</strong></td>
                                 <td>72.76%</td>
                                 <td>±17.31%</td>
-                                <td>Rendimiento inconsistente</td>
+                                <td>Inconsistent performance</td>
                             </tr>
                         </tbody>
                     </table>
                     
                     <div class="results-grid" style="margin-top: 2rem;">
                         <div class="result-card">
-                            <h4>Análisis de Resultados</h4>
-                            <p>El <strong>LDA</strong> demostró ser el modelo más efectivo con una precisión del 98% y baja variabilidad. Los modelos lineales (LDA, QDA) superaron a los no lineales en este dataset específico.</p>
-                            <p>El <strong>Perceptron</strong> mostró un rendimiento inconsistente debido a la no separabilidad lineal completa del dataset.</p>
+                            <h4>Results Analysis</h4>
+                            <p><strong>LDA</strong> proved to be the most effective model with 98% accuracy and low variability. Linear models (LDA, QDA) outperformed non-linear approaches in this specific dataset.</p>
+                            <p>The <strong>Perceptron</strong> showed inconsistent performance due to the dataset's incomplete linear separability.</p>
                         </div>
                         <div class="result-card">
-                            <h4>Importancia de Características</h4>
-                            <p>El análisis del árbol de decisión reveló que <strong>petal length</strong> es la característica más importante (89.3%), seguida de <strong>petal width</strong> (8.8%).</p>
-                            <p>Las características del sépalo mostraron menor poder discriminatorio para este problema de clasificación.</p>
+                            <h4>Feature Importance</h4>
+                            <p>Decision tree analysis revealed that <strong>petal length</strong> is the most important feature (89.3%), followed by <strong>petal width</strong> (8.8%).</p>
+                            <p>Sepal features showed less discriminatory power for this classification problem.</p>
                         </div>
                     </div>
                 </div>
@@ -554,38 +591,38 @@
         </div>
     </section>
 
-    <!-- Hallazgos -->
+    <!-- Key Findings -->
     <section class="section-light">
         <div class="container">
             <div class="section-title fade-in">
-                <h2>Hallazgos Clave</h2>
+                <h2>Key Findings</h2>
             </div>
             <div class="results-grid fade-in">
                 <div class="result-card">
-                    <h4><i class="fas fa-project-diagram"></i> Separabilidad de Clases</h4>
-                    <p>La visualización con t-SNE y pairplots confirmó que Iris Setosa es claramente separable, mientras que Iris Versicolour e Iris Virginica presentan cierto solapamiento en el espacio de características.</p>
+                    <h4><i class="fas fa-project-diagram"></i> Class Separability</h4>
+                    <p>Visualization with t-SNE and pairplots confirmed that Iris Setosa is clearly separable, while Iris Versicolour and Iris Virginica show some overlap in the feature space.</p>
                 </div>
                 <div class="result-card">
-                    <h4><i class="fas fa-ruler-combined"></i> Características Discriminatorias</h4>
-                    <p>Las medidas del pétalo (length y width) son significativamente más informativas que las del sépalo para distinguir entre especies, con petal length siendo la característica más importante.</p>
+                    <h4><i class="fas fa-ruler-combined"></i> Discriminatory Features</h4>
+                    <p>Petal measurements (length and width) are significantly more informative than sepal measurements for distinguishing between species, with petal length being the most important feature.</p>
                 </div>
                 <div class="result-card">
-                    <h4><i class="fas fa-chart-line"></i> Rendimiento de Modelos</h4>
-                    <p>Los modelos lineales (LDA, QDA) superaron a enfoques más complejos, sugiriendo que las relaciones lineales capturan adecuadamente la estructura subyacente del dataset Iris.</p>
+                    <h4><i class="fas fa-chart-line"></i> Model Performance</h4>
+                    <p>Linear models (LDA, QDA) outperformed more complex approaches, suggesting that linear relationships adequately capture the underlying structure of the Iris dataset.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tecnologías -->
+    <!-- Technologies -->
     <section>
         <div class="container">
             <div class="section-title fade-in">
-                <h2>Tecnologías Utilizadas</h2>
+                <h2>Technologies Used</h2>
             </div>
             <div class="skills-grid">
                 <div class="skill-category fade-in">
-                    <h3><i class="fas fa-code"></i> Lenguajes & Librerías</h3>
+                    <h3><i class="fas fa-code"></i> Languages & Libraries</h3>
                     <ul>
                         <li><i class="fab fa-python"></i> Python 3.8+</li>
                         <li><i class="fas fa-cube"></i> scikit-learn</li>
@@ -594,53 +631,53 @@
                     </ul>
                 </div>
                 <div class="skill-category fade-in delay-1">
-                    <h3><i class="fas fa-cogs"></i> Algoritmos</h3>
+                    <h3><i class="fas fa-cogs"></i> Algorithms</h3>
                     <ul>
                         <li><i class="fas fa-project-diagram"></i> LDA & QDA</li>
-                        <li><i class="fas fa-shapes"></i> SVM con kernel RBF</li>
+                        <li><i class="fas fa-shapes"></i> SVM with RBF Kernel</li>
                         <li><i class="fas fa-network-wired"></i> Perceptron</li>
                         <li><i class="fas fa-sitemap"></i> Decision Trees</li>
                     </ul>
                 </div>
                 <div class="skill-category fade-in delay-2">
-                    <h3><i class="fas fa-tasks"></i> Técnicas</h3>
+                    <h3><i class="fas fa-tasks"></i> Techniques</h3>
                     <ul>
-                        <li><i class="fas fa-crosshairs"></i> Validación Cruzada</li>
-                        <li><i class="fas fa-compress-arrows-alt"></i> Reducción Dimensional (t-SNE)</li>
-                        <li><i class="fas fa-search"></i> Análisis Exploratorio</li>
-                        <li><i class="fas fa-chart-line"></i> Evaluación de Modelos</li>
+                        <li><i class="fas fa-crosshairs"></i> Cross-Validation</li>
+                        <li><i class="fas fa-compress-arrows-alt"></i> Dimensionality Reduction (t-SNE)</li>
+                        <li><i class="fas fa-search"></i> Exploratory Analysis</li>
+                        <li><i class="fas fa-chart-line"></i> Model Evaluation</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Conclusiones -->
+    <!-- Conclusions -->
     <section class="section-light">
         <div class="container">
             <div class="section-title fade-in">
-                <h2>Conclusiones</h2>
+                <h2>Conclusions</h2>
             </div>
             <div class="fade-in">
-                <p>Este proyecto demostró la aplicación efectiva de múltiples algoritmos de clasificación en el dataset Iris. Los resultados confirman que para problemas con estructura lineal subyacente, modelos simples como LDA pueden superar a enfoques más complejos.</p>
+                <p>This project demonstrated the effective application of multiple classification algorithms to the Iris dataset. The results confirm that for problems with underlying linear structure, simple models like LDA can outperform more complex approaches.</p>
                 
                 <div class="results-grid" style="margin-top: 2rem;">
                     <div class="result-card">
-                        <h4>Contribuciones Principales</h4>
+                        <h4>Main Contributions</h4>
                         <ul>
-                            <li>Implementación comparativa de 5 algoritmos de ML</li>
-                            <li>Análisis exhaustivo de importancia de características</li>
-                            <li>Visualizaciones avanzadas para interpretación de resultados</li>
-                            <li>Evaluación rigurosa con validación cruzada</li>
+                            <li>Comparative implementation of 5 ML algorithms</li>
+                            <li>Comprehensive feature importance analysis</li>
+                            <li>Advanced visualizations for result interpretation</li>
+                            <li>Rigorous evaluation with cross-validation</li>
                         </ul>
                     </div>
                     <div class="result-card">
-                        <h4>Aprendizajes Clave</h4>
+                        <h4>Key Learnings</h4>
                         <ul>
-                            <li>La simplicidad del modelo no siempre compromete el rendimiento</li>
-                            <li>El análisis exploratorio es crucial para entender los datos</li>
-                            <li>La validación cruzada proporciona estimaciones más robustas</li>
-                            <li>La interpretabilidad del modelo es tan importante como la precisión</li>
+                            <li>Model simplicity doesn't always compromise performance</li>
+                            <li>Exploratory analysis is crucial for understanding data</li>
+                            <li>Cross-validation provides more robust estimates</li>
+                            <li>Model interpretability is as important as accuracy</li>
                         </ul>
                     </div>
                 </div>
@@ -652,14 +689,14 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <h3>¿Interesado en colaborar?</h3>
-                <p>No dudes en contactarme para oportunidades profesionales o proyectos de investigación.</p>
+                <h3>Interested in collaborating?</h3>
+                <p>Feel free to contact me for professional opportunities or research projects.</p>
                 <div class="social-links">
                     <a href="https://github.com/jmalfaro2019" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/jose-alfaro-334327291" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:tu-email@example.com"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:jose.alfaro@etu.imt-nord-europe.fr"><i class="fas fa-envelope"></i></a>
                 </div>
-                <p>&copy; 2024 Jose Miguel Alfaro Castillo. Todos los derechos reservados.</p>
+                <p>&copy; 2024 Jose Miguel Alfaro Castillo. All rights reserved.</p>
             </div>
         </div>
     </footer>
